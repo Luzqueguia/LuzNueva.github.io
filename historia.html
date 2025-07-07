@@ -259,39 +259,35 @@
   <!-- Contenedor de historia -->
   <div class="historia-box" id="historiaBox"></div>
 
-  <div style="text-align: center;">
-    <button id="botonPaso1" class="btn-primary" onclick="mostrarPaso2()">
-      ¿Has leído todas las historias...?
-    </button>
-  </div>
-  
-  <br><br>
-
-  <div id="contenedorPaso2" style="display: none; text-align: center;">
-    <button id="botonPaso2" class="btn-primary pixelado" onclick="mostrarMensajeFinal()">
-      ¿Te gustaría saber qué conecta cada historia...?
-    </button>
-  </div>
-
-<br><br>
-
 <!-- Zona para escribir lo que siente -->
 <section id="zonaSentimientos" aria-label="Zona para escribir sentimientos">
   <label for="inputSentimiento">¿Qué sientes al leer esta historia?</label>
   <textarea id="inputSentimiento" placeholder="Escribe aquí lo que te inspira o sientes..."></textarea>
   <br>
+  <br> 
   <button id="guardarSentimientoBtn" onclick="guardarSentimiento()">Guardar</button>
   <p id="mensajeSentimientoGuardado" role="alert">¡Gracias por compartir tus sentimientos! ❤️</p>
+<!-- ...zona de sentimientos termina aquí -->
 </section>
+<br> <br> 
+<!-- Botones de paso y mensaje final aquí, justo antes del botón volver -->
+<div style="text-align: center;">
+  <button id="botonPaso1" class="btn-primary" onclick="mostrarPaso2()">
+    ¿Has leído todas las historias...?
+  </button>
+</div>
 
+<div id="contenedorPaso2" style="display: none; text-align: center;">
+  <button id="botonPaso2" class="btn-primary pixelado" onclick="mostrarMensajeFinal()">
+    ¿Te gustaría saber qué conecta cada historia...?
+  </button>
+</div>
 
-
-  <p id="mensajeFinal" style="margin-top: 1.5rem; font-style: italic; display: none;">
-    Sin importar el universo o el día, estas historias tienen una verdad en común: siempre estaré para ti, ya sea como un príncipe, un código, incluso como un espectro fantasioso. No te dejaré sola.
-  </p>
-
-  <a href="index.html" class="btn-primary">← Volver al inicio</a>
-
+<p id="mensajeFinal" style="margin-top: 1.5rem; font-style: italic; display: none;">
+  Sin importar el universo o el día, estas historias tienen una verdad en común: siempre estaré para ti, ya sea como un príncipe, un código, incluso como un espectro fantasioso. No te dejaré sola.
+</p>
+<br> <br> 
+<a href="index.html" class="btn-primary">← Volver al inicio</a>
 <div style="margin-top: 2rem; text-align: center;">
   <span style="font-weight: bold; color: #7c5ab2;">Tu progreso espiritual:</span>
   <div style="display: inline-block; margin-left: 10px;">
@@ -518,35 +514,4 @@ Así, el mago aprendió que el poder no es para dominar, sino para proteger, san
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 
-    const trigger = document.getElementById("eternoTrigger");
-    const cuadro = document.getElementById("eternoCuadro");
-    trigger.addEventListener("click", () => {
-      cuadro.classList.toggle("visible");
-    });
-
-    function mostrarPaso2() {
-      const boton1 = document.getElementById('botonPaso1');
-      const contenedorPaso2 = document.getElementById('contenedorPaso2');
-      boton1.classList.add('fadeOut');
-      setTimeout(() => {
-        boton1.style.display = 'none';
-        contenedorPaso2.style.display = 'block';
-        const boton2 = document.getElementById('botonPaso2');
-        setTimeout(() => boton2.classList.add('activo'), 50);
-      }, 400);
-    }
-
-    function mostrarMensajeFinal() {
-      const mensaje = document.getElementById('mensajeFinal');
-      const boton = document.getElementById('botonPaso2');
-      mensaje.style.display = 'block';
-      setTimeout(() => mensaje.classList.add('visible'), 10);
-      boton.classList.add('fadeOut');
-      setTimeout(() => boton.style.display = 'none', 500);
-    }
-
-    window.mostrarPaso2 = mostrarPaso2;
-    window.mostrarMensajeFinal = mostrarMensajeFinal;
-  </script>
-</body>
-</html>
+    const trigger = document.getElement
