@@ -514,4 +514,35 @@ Así, el mago aprendió que el poder no es para dominar, sino para proteger, san
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 
-    const trigger = document.getElement
+    const trigger = document.getElementById("eternoTrigger");
+    const cuadro = document.getElementById("eternoCuadro");
+    trigger.addEventListener("click", () => {
+      cuadro.classList.toggle("visible");
+    });
+
+    function mostrarPaso2() {
+      const boton1 = document.getElementById('botonPaso1');
+      const contenedorPaso2 = document.getElementById('contenedorPaso2');
+      boton1.classList.add('fadeOut');
+      setTimeout(() => {
+        boton1.style.display = 'none';
+        contenedorPaso2.style.display = 'block';
+        const boton2 = document.getElementById('botonPaso2');
+        setTimeout(() => boton2.classList.add('activo'), 50);
+      }, 400);
+    }
+
+    function mostrarMensajeFinal() {
+      const mensaje = document.getElementById('mensajeFinal');
+      const boton = document.getElementById('botonPaso2');
+      mensaje.style.display = 'block';
+      setTimeout(() => mensaje.classList.add('visible'), 10);
+      boton.classList.add('fadeOut');
+      setTimeout(() => boton.style.display = 'none', 500);
+    }
+
+    window.mostrarPaso2 = mostrarPaso2;
+    window.mostrarMensajeFinal = mostrarMensajeFinal;
+  </script>
+</body>
+</html>
