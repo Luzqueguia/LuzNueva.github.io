@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cada flor tiene una historia</title>
+<style>
+body {
+margin: 0;
+padding: 2rem;
+background: #1a1229;
+color: #e0d6f5;
+font-family: 'Georgia', serif;
+text-align: center;
+}
+
+h1 {
+font-size: 2rem;
+color: #d7c2ff;
+margin-bottom: 2rem;
+}
+
+.botones {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 1rem;
+margin-bottom: 2rem;
+}
+
+.btn-flor {
+background-color: #6a4dad;
+border: none;
+color: #fff;
+padding: 0.7rem 1.2rem;
+font-size: 1rem;
+border-radius: 12px;
+cursor: pointer;
+transition: background-color 0.3s;
+box-shadow: 0 0 10px rgba(180, 150, 255, 0.3);
+}
+
+.btn-flor:hover {
+background-color: #7b5ed6;
+}
+
+.caja-historia {
+max-width: 800px;
+margin: 0 auto;
+background: rgba(80, 50, 120, 0.3);
+border: 1px solid #a58be5;
+border-radius: 20px;
+padding: 1.8rem;
+font-size: 1.1rem;
+font-style: italic;
+line-height: 1.7;
+box-shadow: 0 0 30px rgba(160, 140, 255, 0.1);
+backdrop-filter: blur(6px);
+display: none;
+animation: aparecer 0.5s ease-in-out;
+text-align: left;
+white-space: pre-line;
+}
+
+.letra-nombre {
+max-width: 800px;
+margin: 1rem auto 0 auto;
+font-size: 2.5rem;
+color: #c2aaff;
+font-weight: bold;
+font-style: normal;
+font-family: 'Georgia', serif;
+text-align: center;
+user-select: none;
+letter-spacing: 0.25em;
+min-height: 3rem;
+}
+
+@keyframes aparecer {
+from {
+opacity: 0;
+transform: translateY(15px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+</style>
+</head>
+<body>
+
+<h1>🌸 Cada flor tiene una historia 🌸</h1>
+
+<div class="botones">
+<button class="btn-flor" onclick="mostrarHistoria(0)">Flor 1</button>
+<button class="btn-flor" onclick="mostrarHistoria(1)">Flor 2</button>
+<button class="btn-flor" onclick="mostrarHistoria(2)">Flor 3</button>
+<button class="btn-flor" onclick="mostrarHistoria(3)">Flor 4</button>
+<button class="btn-flor" onclick="mostrarHistoria(4)">Flor 5</button>
+<button class="btn-flor" onclick="mostrarHistoria(5)">Flor 6</button>
+<button class="btn-flor" onclick="mostrarHistoria(6)">Flor 7</button>
+<button class="btn-flor" onclick="mostrarHistoria(7)">Flor 8</button>
+<button class="btn-flor" onclick="mostrarHistoria(8)">Flor 9</button>
+<button class="btn-flor" onclick="mostrarHistoria(9)">Flor 10</button>
+</div>
+
+<div class="letra-nombre" id="letra"></div>
+<div class="caja-historia" id="historia"></div>
+<br> <br>
+
+
+<div class="caja-historia" id="historia"></div>
+<br><br>
+<button class="btn-flor" id="btnVolver" href="index.html">← Volver al inicio</button>
+
+<script>
+  const nombrePastora = "MAYTE";
+  const historias = [
+    "Como un tulipán al amanecer, tu existencia es un milagro suave que florece aún en los días más grises. Gracias por iluminar mi vida con tu ternura.",
+    "Tu presencia es como una brisa que acaricia el alma. No hay día que pase sin agradecerle a Dios por el regalo inmenso de conocerte.",
+    "Eres más que una flor entre flores. Eres raíz, eres cielo, eres un amor que no se marchita, porque nace desde lo eterno.",
+    "En cada gesto tuyo hay una bondad que no se aprende, se lleva en el alma. Y la mía no deja de admirarte.",
+    "A veces pienso que si las estrellas hablaran, contarían sobre ti... porque hay luz en ti que ni el tiempo puede apagar.",
+    "Tus ojos son ventanas de luz divina,\ndonde el alma se refleja en calma y verdad,\nbrillan como estrellas que guían mi camino,\ny en su profundidad encuentro paz y amor eterno.",
+    "Eres como una oración que no se dice con palabras, pero se siente en el pecho: suave, constante, y llena de amor eterno.",
+    "No hay medida que capture lo que significas para mí. Eres esa flor que no se marchita, porque fue plantada en un terreno sagrado: el alma.",
+    "Tu bondad es una melodía que no necesita sonido. Basta verte para recordar que el amor verdadero existe.",
+    "Si alguna vez lo olvidas: tú has sido parte de mi fe, de mi crecimiento y de mis días más valientes. Nunca dejes de florecer."
+  ];
+
+  const acrostico = `M - Milagros pequeños que llenan de esperanza cada día.,
+A - Amor eterno que nunca se desvanece ni pierde fuerza.,
+Y - Yace en tu alma la paz que solo Dios puede dar.,
+T - Ternura que envuelve el corazón y da paz al alma.,
+E - Esfuerzo constante que fortalece la vida espiritual.`;
+
+  let letrasFormadas = "";
+  const botonesConLetra = [0, 2, 4, 6, 8];
+
+  function mostrarHistoria(index) {
+    const caja = document.getElementById("historia");
+    const letraDiv = document.getElementById("letra");
+
+    if (index === 9) {
+      letraDiv.textContent = nombrePastora;
+      caja.style.display = "block";
+      caja.textContent = acrostico;
+    } else if (botonesConLetra.includes(index)) {
+      const letraIndex = botonesConLetra.indexOf(index);
+      const letra = nombrePastora.charAt(letraIndex);
+      if (!letrasFormadas.includes(letra)) {
+        letrasFormadas += letra;
+      }
+      letraDiv.textContent = letrasFormadas;
+      caja.style.display = "block";
+      caja.textContent = historias[index];
+    } else {
+      letraDiv.textContent = letrasFormadas;
+      caja.style.display = "block";
+      caja.textContent = historias[index];
+    }
+  }
+
+  // Aquí agregamos funcionalidad al botón de volver
+  document.getElementById('btnVolver').addEventListener('click', () => {
+    window.location.href = 'index.html'; // Cambia si tu página principal tiene otro nombre
+  });
+</script>
+</body>
+</html>
